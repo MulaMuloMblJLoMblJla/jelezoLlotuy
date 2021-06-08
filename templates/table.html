@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% block content %}
+  <section class="main-table-section">
+    <table style="border-collapse: collapse; justify-content: center; background-color: aliceblue" id="table">
+      <thead>
+      <tr>
+        <th class="table-col th-left" onclick="sortTable(1, -1)" ondblclick="sortTable(-1, 1)"></th>
+        <th class="table-col"></th>
+        <th class="table-col">Windows</th>
+        <th class="table-col">Macos</th>
+        <th class="table-col">Linux</th>
+        <th class="table-col">Android</th>
+        <th class="table-col th-right no-right-border">Ios</th>
+      </tr>
+      </thead>
+      <tr>
+        <td class="first-row-col no-top-border">1</td>
+        <td class="table-row no-top-border">Morgenstern taxi</td>
+        <td class="table-row td-true no-top-border">&#10003;</td>
+        <td class="table-row no-top-border">&#10007;</td>
+        <td class="table-row td-true no-top-border">&#10003;</td>
+        <td class="table-row no-top-border">&#10007;</td>
+        <td class="table-row td-true no-top-border no-right-border">&#10003;</td>
+      </tr>
+      <tr>
+        <td class="first-row-col">2</td>
+        <td class="table-row">Anime food delivery</td>
+        <td class="table-row td-true">&#10003;</td>
+        <td class="table-row td-true">&#10003;</td>
+        <td class="table-row td-true">&#10003;</td>
+        <td class="table-row">&#10007;</td>
+        <td class="table-row td-true no-right-border">&#10003;</td>
+      </tr>
+      <tr>
+        <td class="first-row-col">3</td>
+        <td class="table-row">Kachalka fizra app</td>
+        <td class="table-row td-true">&#10003;</td>
+        <td class="table-row td-true">&#10003;</td>
+        <td class="table-row">&#10007;</td>
+        <td class="table-row td-true">&#10003;</td>
+        <td class="table-row td-true no-right-border">&#10003;</td>
+      </tr>
+      <tr>
+        <td class="first-row-col">11</td>
+        <td class="table-row">Calculator</td>
+        <td class="table-row td-true">&#10003;</td>
+        <td class="table-row">&#10007;</td>
+        <td class="table-row td-true">&#10003;</td>
+        <td class="table-row td-true">&#10003;</td>
+        <td class="table-row td-true no-right-border">&#10003;</td>
+      </tr>
+      <tr>
+        <td class="first-row-col no-bottom-border">5</td>
+        <td class="table-row td-left no-bottom-border">Tic-toc no cringhj analog</td>
+        <td class="table-row td-true no-bottom-border">&#10003;</td>
+        <td class="table-row no-bottom-border">&#10007;</td>
+        <td class="table-row no-bottom-border">&#10007;</td>
+        <td class="table-row no-bottom-border">&#10007;</td>
+        <td class="table-row td-right td-true no-bottom-border no-right-border">&#10003;</td>
+      </tr>
+    </table>
+  </section>
+  <script>
+    function currentPageTable() {
+      const div = document.getElementById('tableTitle')
+      document.getElementById('headerTitle').innerText = div.innerText
+      div.style.backgroundColor = '#DCFF9D'
+    }
+
+    currentPageTable()
+
+    function sortTable(first, second) {
+      const table = document.getElementById('table')
+      let sortedRows = Array.from(table.rows).slice(1)
+          .sort((rowA, rowB) => Number(rowA.cells[0].innerHTML) > Number(rowB.cells[0].innerHTML) ? first : second);
+      const styles = ["first-row-col no-top-border", "first-row-col", "first-row-col", "first-row-col", "first-row-col no-bottom-border"]
+      for (let i = 0; i < sortedRows.length; i++){
+        console.log(1)
+        sortedRows[i].cells[0].className = styles[i]
+        console.log(sortedRows[i].cells[0].className)
+      }
+      table.tBodies[0].append(...sortedRows);
+    }
+  </script>
+{% endblock content %}

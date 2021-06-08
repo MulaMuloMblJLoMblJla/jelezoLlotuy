@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="sidebar">
+    <ul id="request">
+      <li class="sub-title">
+        Status
+      </li>
+    </ul>
+  </div>
+  <div class="central">
+  <form method="post" action="{% url 'review' %}" id="reviewForm">
+      {% csrf_token %}
+      <p>{{ form.name }}</p>
+      <p> {{ form.last_name }}</p>
+      <p>{{ form.email }}</p>
+      <p>{{ form.request }}</p>
+      <p>{{ form.text }}</p>
+
+      <button type="submit" class="form-button">Отправить</button>
+    </form>
+  </div>
+  <script>
+    function currentPageForm() {
+      const div = document.getElementById('contactTitle')
+      document.getElementById('headerTitle').innerText = div.innerText
+      div.style.backgroundColor = '#DCFF9D'
+    }
+    currentPageForm()
+  </script>
+{% endblock content %}

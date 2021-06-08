@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="title4-div1">
+    <dl>
+      <dt>Windows:</dt>
+      <dd>
+        <ul>
+          <li>Morgenstern taxi</li>
+          <li>Anime food delivery</li>
+          <li>Kachalka fizra app</li>
+          <li>Calculator</li>
+          <li>Tic-toc no cringhj analog</li>
+        </ul>
+      </dd>
+      <dt>Macos:</dt>
+      <dd>
+        <ul>
+          <li>Anime food delivery</li>
+          <li>Kachalka fizra app</li>
+        </ul>
+      </dd>
+      <dt>Linux:</dt>
+      <dd>
+        <ul>
+          <li>Morgenstern taxi</li>
+          <li>Anime food delivery</li>
+          <li>Calculator</li>
+        </ul>
+      </dd>
+      <dt>Android:</dt>
+      <dd>
+        <ul>
+          <li>Kachalka fizra app</li>
+          <li>Calculator</li>
+        </ul>
+      </dd>
+      <dt>Ios:</dt>
+      <dd>
+        <ul>
+          <li>Morgenstern taxi</li>
+          <li>Anime food delivery</li>
+          <li>Kachalka fizra app</li>
+          <li>Calculator</li>
+          <li>Tic-toc no cringhj analog</li>
+        </ul>
+      </dd>
+    </dl>
+  </div>
+  <script>
+    function currentPageList() {
+      const div = document.getElementById('listTitle')
+      document.getElementById('headerTitle').innerText = div.innerText
+      div.style.backgroundColor = '#DCFF9D'
+    }
+    currentPageList()
+  </script>
+{% endblock content %}

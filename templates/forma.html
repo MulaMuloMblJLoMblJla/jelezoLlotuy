@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+  <div class="sidebar">
+    <ul>
+      <li class="sub-title">
+        Пункты меню
+      </li>
+      {% for sub in subs %}
+        <li class="sub-li">
+          {{ sub.title }}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="central">
+    <div class="container-scroller">
+      <div class="container-fluid page-body-wrapper full-page-wrapper">
+        <div class="content-wrapper d-flex align-items-center auth">
+          <div class="row flex-grow">
+            <div class="col-lg-4 mx-auto">
+              <div class="auth-form-light text-left p-5">
+                <h4>Добрый день!</h4>
+                <form method="post" action="{% url 'login' %}" class="pt-3">
+                  {% csrf_token %}
+                  <div class="form-group">
+                    <br>Username
+                    <br>{{ form1.username }}
+                  </div>
+                  <div class="form-group">
+                    <br>Password
+                    <br>{{ form1.password }}
+                  </div>
+                  {% if form1.errors %}
+                    <p>Your username and password didn't match. Please try again.</p>
+                  {% endif %}
+                  <input type="submit" value="Войти"/>
+                  <input type="hidden" name="next" value="{{ next }}"/>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <h1>Реалии рынка ИТ в условиях коронавируса</h1>
+    <p>В первые месяцы пандемии COVID-19 отрасль IT не была готова к локдауну: она столкнулась с проблемами перевода
+      работников на “удалёнку”, многие долгосрочные проекты были поставлены на паузу, инвестиции стали
+      перенаправляться на краткосрочные проекты с быстрой отдачей.</p>
+    <p>Но бизнес и государственные компании в IT сфере в среагировали быстро и нашли возможность справиться со
+      многими
+      проблемами. Силы были направлены в первую очередь на обеспечение здоровья граждан – через улучшение
+      коммуникативных связей посредством облегчения доступа к технологии видеоконференций. Так же многие
+      онлайн-сервисы помогали национальным правительствам в распространении полезной информации о борьбе с
+      коронавирусной инфекцией.
+    </p>
+    <div class="article">gdfjhgfdfhdjfhjdf</div>
+    <div class="article-text"> Но бизнес и государственные компании в IT сфере в среагировали быстро и нашли возможность
+      справиться со
+      многими
+      проблемами. Силы были направлены в первую очередь на обеспечение здоровья граждан – через улучшение
+      коммуникативных связей посредством облегчения доступа к технологии видеоконференций. Так же многие
+      онлайн-сервисы помогали национальным правительствам в распространении полезной информации о борьбе с
+      коронавирусной инфекцией.
+    </div>
+    <div class="article">gdfjhgfdfhdjfhjdf</div>
+    <div class="article-text"> Но бизнес и государственные компании в IT сфере в среагировали быстро и нашли возможность
+      справиться со
+      многими
+      проблемами. Силы были направлены в первую очередь на обеспечение здоровья граждан – через улучшение
+      коммуникативных связей посредством облегчения доступа к технологии видеоконференций. Так же многие
+      онлайн-сервисы помогали национальным правительствам в распространении полезной информации о борьбе с
+      коронавирусной инфекцией.
+    </div>
+    <div class="article">gdfjhgfdfhdjfhjdf</div>
+    <div class="article-text"> Но бизнес и государственные компании в IT сфере в среагировали быстро и нашли возможность
+      справиться со
+      многими
+      проблемами. Силы были направлены в первую очередь на обеспечение здоровья граждан – через улучшение
+      коммуникативных связей посредством облегчения доступа к технологии видеоконференций. Так же многие
+      онлайн-сервисы помогали национальным правительствам в распространении полезной информации о борьбе с
+      коронавирусной инфекцией.
+    </div>
+    <img src="{% static 'images/maxresdefault.jpeg' %}" alt="Бан" class="form-image">
+  </div>
+  <script>
+    function currentPageForm() {
+      const div = document.getElementById('formTitle')
+      document.getElementById('headerTitle').innerText = div.innerText
+      div.style.backgroundColor = '#DCFF9D'
+    }
+
+    currentPageForm()
+  </script>
+{% endblock %}
